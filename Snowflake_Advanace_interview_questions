@@ -1,1 +1,36 @@
+Data Engineer is performing below steps in sequence while working on Stream s1 created on table t1.
+Step 1: Begin transaction.
+Step 2: Query stream s1 on table t1.
+Step 3: Update rows in table t1.
+Step 4: Query stream s1.
+Step 5: Commit transaction.
+Step 6: Begin transaction.
+Step 7: Query stream s1.
+Mark the Incorrect Operational statements:
 
+A) For Step 2, The stream returns the change data capture records between the current position to the Transaction 1 start time. If the
+stream is used in a DML statement, the stream is then locked to avoid changes by concurrent transactions.
+B) For Step 4, Returns the CDC data records by streams with updated rows happened in the Step 3 because Streams works in
+Repeated committed mode in which statements see any changes made by previous statements executed within the same transaction,
+even though those changes are not yet committed.
+C) For Step 5, If the stream was consumed in DML statements within the transaction, the stream position advances to the transaction
+start time.
+D) For Step 7, Results do include table changes committed by Transaction 1.
+E) if Transaction 2 had begun before Transaction 1 was committed, queries to the stream would have returned a snapshot of the stream
+from the position of the stream to the be-ginning time of Transaction 2 and would not see any changes committed by Transac-tion 1.
+
+Answer:B
+
+Explanation:
+Streams support repeatable read isolation. In repeatable read mode, multiple SQL statements within a transaction see the same set of
+records in a stream. This differs from the read committed mode supported for tables, in which statements see any changes made by
+previous statements executed within the same transaction, even though those changes are not yet committed.
+The delta records returned by streams in a transaction is the range from the current position of the stream until the transaction start time.
+The stream position advances to the transaction start time if the transaction commits; otherwise, it stays at the same position.
+Within Transaction 1, all queries to stream s1 see the same set of records. DML changes to table t1 are recorded to the stream only
+when the transaction is committed.
+In Transaction 2, queries to the stream see the changes recorded to the table in Transaction 1. Note that if Transaction 2 had begun
+before Transaction 1 was committed, queries to the stream would have returned a snapshot of the stream from the position of the
+stream to the beginning time of Transaction 2 and would not see any changes committed by Transaction 1.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
