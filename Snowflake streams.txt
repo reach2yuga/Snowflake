@@ -1,0 +1,49 @@
+1.Can stream create on permenent tables or we can create it on temprory table as well?
+	=> Supported Table Types for Streams : Permanent Tables,Transient Tables,External Tables,Views
+	=> stream cannot create on temporary tables.
+
+2. Can stream stores physical data?
+	=> Snowflake stream does not store physical data. Instead, it maintains a lightweight offset
+	
+3. can we create multiple streams on single table?
+	=> Yes, you can create multiple streams on a single table in Snowflake.
+    =>	Each stream operates independently, maintaining its own offset
+
+4. If 2 person created 2 different stream on same table they will have same data in stream if my source table changes. 
+   then what is use of creating multiple streams on same table?
+   => Standard Streams :Tracks: Inserts, updates, and deletes.
+   =>  Append-Only Streams : Tracks: Only insert operations.
+   => Insert-Only Streams: Tracks: Only insert operations on external tables.
+   
+5. What if i dont consume stream will my data lost?
+ => Yes. 
+ => Each table has a data retention period, typically up to 90 days,
+	during which changes can be queried. If a stream is not consumed within this retention period,
+	it can become stale, meaning its offset moves outside the available data retention window,
+	and the changes it was tracking are no longer accessible.
+		
+6. How to increemntally load data using stream?
+	=> using merage statement
+	
+			MERGE INTO target_table AS target
+		USING source_stream AS source
+		ON target.id = source.id
+		WHEN MATCHED AND source.METADATA$ACTION = 'DELETE' THEN
+		  DELETE
+		WHEN MATCHED AND source.METADATA$ACTION = 'INSERT' THEN
+		  INSERT (id, name, updated_at)
+		  VALUES (source.id, source.name, source.updated_at)
+		WHEN NOT MATCHED AND source.METADATA$ACTION = 'INSERT' THEN
+		  INSERT (id, name, updated_at)
+		  VALUES (source.id, source.name, source.updated_at);
+
+7. How do I know which is latest record if single record updated 10 times before consuming stream?
+	=> METADATA$ACTION	 METADATA$ISUPDATE
+         INSERT	          TRUE
+	=> In this scenario, the stream captures only the final update as an insert operation. 
+	   The METADATA$ISUPDATE column indicates that this change was part of an update
+	   
+8. When stream became steal?
+	=> A Snowflake stream becomes stale when its offset—the point up to 
+	  which changes have been tracked—falls outside the data retention period of its source table or view.
+	  STALE_AFTER = FALSE --means stream is steal
