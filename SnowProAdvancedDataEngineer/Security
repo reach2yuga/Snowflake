@@ -42,4 +42,28 @@ Explanation : https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-u
 
 -----------------------------------------------------------------------------
 
+12. Which of the following options are correct regarding the SECURITYADMIN and
+USERADMIN roles?
+1. The USERADMIN role includes the privileges to create and manage users and
+roles, and it’s a child of the SECURITYADMIN role.
+2. The SECURITYADMIN role includes the privileges to create and manage users
+and roles, and it’s a child of the USERADMIN role.
+3. The SECURITYADMIN role includes the global MANAGE GRANTS privilege to
+grant or revoke privileges on objects in the account.
+4. The USERADMIN role includes the global MANAGE GRANTS privilege to
+grant or revoke privileges on objects in the account.
+Answer : 1
+
+-----------------------------------------------------------------------
+14. Rachel is managing data access in Snowflake and needs to ensure that only specific users
+can see certain columns in a table. What is the best way to enforce this?
+A. Use row-level security to restrict access to specific columns.
+B. Create secure views that expose only the required columns to the users.
+C. Apply column-level encryption on the sensitive columns.
+D. Use external tables to manage access to specific columns
+Answer : A
+
+
+----------------------------------------------------------
+
 
