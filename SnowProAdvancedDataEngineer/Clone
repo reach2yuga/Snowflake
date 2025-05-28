@@ -34,5 +34,6 @@ Notes:
 Clones are transactionally consistent snapshots at the moment of cloning.
 Modifications to the clone or original do not affect each other after cloning.
 Zero-copy cloning is storage-efficient until changes are made.
+Clone can be cloned with no limitations
 
 -------------------------------------------------------------------------------------------------------------------------
