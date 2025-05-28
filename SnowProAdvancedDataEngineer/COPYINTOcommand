@@ -1,1 +1,16 @@
 
+
+ David, a Data Engineer, has been asked to create a backup strategy for critical tables in
+Snowflake. Which of the following actions should he include in his strategy?
+A. Use the COPY INTO command to export data to external storage regularly.
+B. Implement fail-safe mechanisms for all critical tables.
+C. Schedule regular snapshots of the tables using the CLONE command.
+D. Enable multi-cluster warehouses for high availability.
+Answer : A
+Explanation - B is out because fail safe is available by default and no setting change is required to
+enable this
+C is out as CLONE just creates a virtual copy and not physical copies
+D is out because multi-cluster warehouses are there for performance improvement and not back up
+strategy
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
