@@ -5,3 +5,11 @@ B. NO
 Answer - B
 
 ---------------------------------
+
+9. Can the same column be specified in both a dynamic data masking policy signature and a
+row access policy signature at the same time?
+A. YES
+B. NO
+Answer : YES
+
+-------------------------------------------
