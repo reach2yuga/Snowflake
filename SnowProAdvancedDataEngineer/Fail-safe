@@ -1,3 +1,6 @@
+ (Storage & Data Protection)
+-----------------------------------------------------------------------------
+
 Fail-safe:
 => Separate and distinct from Time Travel, Fail-safe ensures historical data is protected in the event of a system failure or other event (e.g. a security breach).
 => Fail-safe provides a (non-configurable) 7-day period during which historical data may be recoverable by Snowflake. 
