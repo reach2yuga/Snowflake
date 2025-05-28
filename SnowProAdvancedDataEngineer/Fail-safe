@@ -1,1 +1,22 @@
+Fail-safe:
+=> Separate and distinct from Time Travel, Fail-safe ensures historical data is protected in the event of a system failure or other event (e.g. a security breach).
+=> Fail-safe provides a (non-configurable) 7-day period during which historical data may be recoverable by Snowflake. 
+=> This period starts immediately after the Time Travel retention period ends.
+=> Data recovery through Fail-safe may take from several hours to several days to complete.
+--------------------------------------------------------------------------------------------------
 
+| Table Type    | Time Travel Retention  | Fail-safe Period   | Total Recovery Window | Notes                                     |
+| ------------- | ---------------------- | ------------------ | --------------------- | ----------------------------------------- |
+| **Permanent** | 1–90 days (default: 1) | **7 days**         | 8–97 days             | Fail-safe cannot be disabled or shortened |
+| **Transient** | 0–1 day (default: 0)   | ❌ **No Fail-safe** | Up to 1 day           | Used to reduce storage costs              |
+| **Temporary** | None                   | ❌ **No Fail-safe** | None                  | Exists only for session duration          |
+
+
+---------------------------------------------------------------------------------------------
+Important Details:
+Fail-safe is not user-accessible: You cannot use SQL to recover objects during fail-safe.
+Recovery must be requested via Snowflake Support.
+Objects in fail-safe still incur storage charges.
+Fail-safe exists to recover from system failures or serious user errors, not for routine recovery.
+
+----------------------------------------------------------------------------------------------------------------
