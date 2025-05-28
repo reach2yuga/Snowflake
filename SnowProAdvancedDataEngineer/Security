@@ -7,3 +7,13 @@ Answer : D
 Explanation : Concepts of system defined roles
 
 ---------------------------------
+
+7. Which role inherits the privileges of the USERADMIN role via the system role hierarchy?
+A. SYSADMIN
+B. SECURITYADMIN
+C. PUBLIC
+D. CUSTOM ROLE
+Answer : B
+
+
+-------------------------------------------
