@@ -1,1 +1,7 @@
+8. Does sensitive data in Snowflake get modified in an existing table while applying masking
+policies?
+A. YES
+B. NO
+Answer - B
 
+---------------------------------
