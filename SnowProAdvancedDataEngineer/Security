@@ -17,3 +17,13 @@ Answer : B
 
 
 -------------------------------------------
+
+10. Which privileges are required on an object (i.e., user or role) with the USERADMIN role to
+modify the object properties?
+A. OPERATE
+B. MANAGE GRANTS
+C. OWNERSHIP
+D. MODIFY
+Answer : C
+
+-----------------------------------------------------
