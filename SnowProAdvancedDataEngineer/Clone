@@ -30,4 +30,9 @@ which snowflake object can be cloned?
 | **Resource Monitors**  | ❌             | Configuration must be manually replicated     |
 | **Shares**             | ❌             | Governed by Data Sharing, not cloning         |
 ---------------------------------------------------------------------------------------------------------------------------
+Notes:
+Clones are transactionally consistent snapshots at the moment of cloning.
+Modifications to the clone or original do not affect each other after cloning.
+Zero-copy cloning is storage-efficient until changes are made.
 
+-------------------------------------------------------------------------------------------------------------------------
