@@ -1,0 +1,27 @@
+Snowflake Tutorial
+
+📘 Ch-1: Introduction & History
+📘 Ch-2: Self Registration
+📘 Ch-3: Snowflake Architecture
+📘 Ch-4: Snowflake Legacy WebUI
+📘 Ch-5: SnowSight (Modern Web UI)
+📘 Ch-6: Snowflake Unique Features
+📘 Ch-7: Container, Database, Schema & Tables
+📘 Ch-8: Snowflake Objects (What’s New)
+📘🔴 Ch-9: Bulk/Batch Data Load
+📘🔴 Ch-10: Continuous Data Load
+📘 Ch-11: External Table & Data Load
+📘 Ch-12: Virtual Warehouse (VWH)
+📘🔴 Ch-13: Snowflake Clustering Concept
+📘 Ch-14: Time Travel Feature
+📘 Ch-15: Data Cloning Feature
+📘 Ch-16: Snowflake Data Sharing + Reader's Account
+📘 Ch-17: Snowflake Stream Objects
+📘 Ch-18: Snowflake Task Objects
+📘🔴 Ch-19: ETL in Snowflake (Stream & Task Together)
+📘 Ch-20: Snowflake Role Hierarchy
+📘🔴 Ch-21: Stored Procedure, UDFs & Views
+📘 Ch-22: Snowflake Information Schema
+📘 Ch-23: Snowflake Monitors & Billing
+📘 Ch-24: Snowflake Connectors (JDBC/ODBC/Python)
+📘 Ch-25: PowerBI & Tableau With Snowflake
