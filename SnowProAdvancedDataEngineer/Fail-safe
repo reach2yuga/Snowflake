@@ -20,3 +20,21 @@ Objects in fail-safe still incur storage charges.
 Fail-safe exists to recover from system failures or serious user errors, not for routine recovery.
 
 ----------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
+
+2. Which of the following statements is/are incorrect regarding Fail-safe data recovery?
+A. Data stored in temporary tables is not recoverable after the table is dropped as they do not
+have fail-safe.
+B. Historical data in transient tables can be recovered by Snowflake due to Operation failure after
+the Time Travel retention period ends using Fail-safe.
+C. Long-lived tables, such as fact tables, should always be defined as permanent to ensure they
+are fully protected by Fail-safe.
+D. Short-lived tables (i.e., <1 day), such as ETL work tables, can be defined as transient to
+eliminate Fail-safe costs.
+E. If downtime and the time required to reload lost data are factors, permanent tables, even with
+their added Fail-safe costs, may offer a better overall solution than transient tables.
+Answer : B
+Explanation : Temporary and Transient tables do not have any fail safe period. The time travel max
+retention period is 1 day that’s it.
+
+-------------------------------------------------------------------------------------
