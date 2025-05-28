@@ -27,3 +27,19 @@ D. MODIFY
 Answer : C
 
 -----------------------------------------------------
+
+11. Select the correct statements with regard to using federated authentication/SSO?
+A. Snowflake supports using MFA in conjunction with SSO to provide additional levels of
+security.
+B. Snowflake supports multiple audience values (i.e., Audience or Audience Restriction Fields)
+in the SAML 2.0 assertion from the identity provider to Snowflake.
+C. Snowflake supports SSO with private connectivity to the Snowflake Service for Snowflake
+accounts on Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform.
+D. Snowflake supports using SSO with organizations, and you can use the corresponding URL
+in the SAML2 security integration
+Answers : B, C
+Explanation : https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use
+
+-----------------------------------------------------------------------------
+
+
