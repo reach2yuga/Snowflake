@@ -1,1 +1,21 @@
 
+
+
+6. A Data Engineer creates a stream object on a transaction source table to capture
+new records in the source table and insert the records into a dimension table.
+The source table gets updated daily. An INSERT statement is configured to run a
+task on a schedule once a week, on Sunday at 8:05 PM Eastern Standard Time,
+using CRON syntax: 5 20 * * 0
+After 10 days of creating the stream and task objects, the Engineer realized that
+the task never ran because the task was not resumed after creation.
+If the data retention period for the source table is set to 1 day, how many days of
+records since the creation of the source table will be read from the stream object
+once the task is resumed? (NOTE: MAX_DATA_EXTENSION_TIME_IN_DAYS
+parameter is set to 14 days.)
+1. The last 1 day of records
+2. The last 7 days of records
+3. The last 10 days of records
+4. The last 14 days of records
+Answer : 4
+
+----------------------------------------------------------------------------------------------------------
