@@ -1,1 +1,16 @@
-
+Mark the correct statements with respect to secure views and their creation in the Snowflake
+Account.
+A. For a secure view, internal optimizations can indirectly expose data and the view definition
+is visible to other users.
+B. Secure views should not be used for views that are defined solely for query convenience,
+such as views created to simplify queries for users who do not need to understand the
+underlying data representation.
+C. To convert an existing view to a secure view and back to a regular view, set/unset the
+SECURE keyword in the ALTER VIEW or ALTER MATERIALIZED VIEW command.
+D. For non-materialized views, the IS_SECURE column in the Information Schema and Account
+Usage views identifies whether a view is secure.
+E. The internals of a secure view are not exposed in the Query Profile (in the web interface).
+This is the case even for the owner of the secure view because non-owners might have access
+to an owner's Query Profile.
+Answers : B, C, E
+Explanation : https://docs.snowflake.com/en/user-guide/views-secure
