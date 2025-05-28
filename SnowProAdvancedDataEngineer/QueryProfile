@@ -1,1 +1,15 @@
-
+=> Pruning — information on the effects of table pruning:
+      Partitions scanned — number of partitions scanned so far.
+      Partitions total — total number of partitions in a given table.
+=> issue :   Partitions scanned: 1,328
+             Partitions total: 1,328
+=> Solution: Use filters on clustering keys
+--------------------------------------------------------------------------------------------------------------------------------------------
+=> Spilling — information about disk usage for operations where intermediate results do not fit in memory:
+      Bytes spilled to local storage — volume of data spilled to local disk.
+      Bytes spilled to remote storage — volume of data spilled to remote disk.
+=> issue: Bytes spilled to local storage: 37.59 GB
+          Spilling happens when intermediate query results exceed/not fit into available memory, forcing Snowflake to use slower local disk storage.
+          Increases execution time (as seen: 8m 20s).
+=> Solution: Increase warehouse size
+-------------------------------------------------------------------------------------------------------------------------------------------------------
