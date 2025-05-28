@@ -1,0 +1,5 @@
+1. Where Snowflake Data is stored?
+=> All your data will be physically stored in that region on the selected cloud 	platform’s storage (e.g., S3 for AWS, Blob Storage for Azure, GCS for Google Cloud).
+=> If you create a Snowflake account on AWS in the us-west-2 region, your data is stored in Amazon S3 buckets in us-west-2, but managed entirely by Snowflake.
+-------------------------------------------------------------
+2. 
