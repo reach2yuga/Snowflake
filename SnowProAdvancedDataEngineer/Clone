@@ -1,1 +1,33 @@
+Snowflake Clone:
+Creates a copy of an existing object in the system. This command is primarily used for creating zero-copy clones of databases, schemas, and tables.
+CREATE TABLE new_table CLONE old_table;
+----------------------------------------------------
+which snowflake object can be cloned?
+  | Object Type                | Cloneable? | Notes                                        |
+| -------------------------- | ---------- | -------------------------------------------- |
+| **Database**               | ✅          | Includes all schemas and objects within it   |
+| **Schema**                 | ✅          | Includes all contained objects               |
+| **Table**                  | ✅          | Includes data (zero-copy at time of cloning) |
+| **External Table**         | ✅          | Metadata only, does not copy external data   |
+| **Views**                  | ✅          | Both regular and materialized views          |
+| **Materialized View**      | ✅          | Cloning is metadata-only                     |
+| **Streams**                | ✅          | Cloned stream starts fresh (no history)      |
+| **Tasks**                  | ✅          | Includes schedule and logic                  |
+| **Stages**                 | ✅          | Internal stages only                         |
+| **File Formats**           | ✅          | Metadata only                                |
+| **Sequences**              | ✅          | Cloned with the same current value           |
+| **Pipes**                  | ✅          | Metadata and definition are cloned           |
+| **Functions**              | ✅          | User-defined functions only                  |
+| **Procedures**             | ✅          | Including JavaScript/SQL procedures          |
+| **Policies** (Row/Masking) | ✅          | Metadata only                                |
+
+------------------------------------------------------------------
+
+| Object Type            | Not Cloneable | Reason                                        |
+| ---------------------- | ------------- | --------------------------------------------- |
+| **Users/Roles/Grants** | ❌             | Security entities must be managed separately  |
+| **Warehouses**         | ❌             | Compute resources; must be created separately |
+| **Resource Monitors**  | ❌             | Configuration must be manually replicated     |
+| **Shares**             | ❌             | Governed by Data Sharing, not cloning         |
+---------------------------------------------------------------------------------------------------------------------------
 
