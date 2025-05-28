@@ -66,4 +66,18 @@ Answer : A
 
 ----------------------------------------------------------
 
+15. A new CUSTOMER table is created by a data pipeline in a Snowflake schema
+where MANAGED ACCESS is enabled.
+Which roles can grant access to the CUSTOMER table? (Choose three.)
+A. The role that owns the schema
+B. The role that owns the database
+C. The role that owns the CUSTOMER table
+D. The SYSADMIN role
+E. The SECURITYADMIN role
+F. The USERADMIN role with the MANAGE GRANTS privilege
+Answers : A, E, F
+
+
+----------------------------------------------------------------------------------
+
 
