@@ -37,3 +37,22 @@ Zero-copy cloning is storage-efficient until changes are made.
 Clone can be cloned with no limitations
 
 -------------------------------------------------------------------------------------------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+5. A Data Engineer wants to create a new development database (DEV) as a clone
+of the permanent production database (PROD). There is a requirement to
+disable Fail-safe for all tables.
+Which command will meet these requirements?
+A. CREATE DATABASE DEV -
+CLONE PROD -
+FAIL_SAFE = FALSE;
+B. CREATE DATABASE DEV -
+CLONE PROD;
+C. CREATE TRANSIENT DATABASE DEV -
+CLONE PROD;
+D. CREATE DATABASE DEV -
+CLONE PROD -
+DATA_RETENTION_TIME_IN DAYS = 0
+Answer : C
+Explanation : Option C will work because the requirement is to disable fail safe.
+Transient tables have fail safe disabled by default
