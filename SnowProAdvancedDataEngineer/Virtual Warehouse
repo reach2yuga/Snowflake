@@ -7,4 +7,11 @@ A virtual warehouse is available in two types:
 A warehouse provides:
   1. resources, such as CPU
   2. memory,
-  3.and temporary storage, to perform the following operations
+  3.and temporary storage, to perform the DML,Select,Loading ,unloading operations
+
+Note :
+To perform these operations, a warehouse must be running and in use for the session. While a warehouse is running, it consumes Snowflake credits.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Warehouse considerations : best practices for using virtual warehouses in Snowflake to process queries.
+  
+  
