@@ -51,4 +51,21 @@ Less than 60 seconds → Minimum 60 seconds charge applies again
 ✅ Charged time = 61 + 60 = 121 seconds
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
+  🔑 Key Points:
+
+  1. Query Complexity Affects Compute Usage =>
+      More complex queries require more compute resources.
+      Larger warehouses generally handle complex queries more efficiently.
+
+  2. Warehouse Size Scales Linearly=>
+      As warehouse size increases, performance improves — especially for complex or large queries.
+      
+  3. Data Size Matters More Than Row Count
+      The total size of the tables (in GB or TB) has a greater impact than just the number of rows.
+
+  4. Query Structure Influences Performance
+      Use of filters (predicates), joins, and number of tables directly affect query load.
+
+  5. Consistency Helps Optimization
+      Run similar types of queries (in terms of complexity and data sets) on the same warehouse.
+      Mixing simple and complex queries in one warehouse can make performance tuning harder.
