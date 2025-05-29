@@ -13,5 +13,16 @@ Note :
 To perform these operations, a warehouse must be running and in use for the session. While a warehouse is running, it consumes Snowflake credits.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 Warehouse considerations : best practices for using virtual warehouses in Snowflake to process queries.
-  
+A warehouse is affected by numerous factors =>
+  1. number of concurrent users/queries
+  2. number of tables being queried, 
+  3. data size and composition,
+  4. pecific requirements for warehouse availability, latency, and cost.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+How are credits charged for warehouses?
+Credit charges are calculated based on:
+  1. The warehouse size.
+  2. The number of clusters (if using multi-cluster warehouses).
+  3. The length of time the compute resources in each cluster runs.
   
