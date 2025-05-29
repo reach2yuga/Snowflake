@@ -70,3 +70,12 @@ Less than 60 seconds → Minimum 60 seconds charge applies again
       Run similar types of queries (in terms of complexity and data sets) on the same warehouse.
       Mixing simple and complex queries in one warehouse can make performance tuning harder.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💡 Pro Tip:
+  1.  To optimize performance and warehouse sizing:
+  2.  Group similar workloads together.
+  3.  Avoid mixing light and heavy queries on the same compute resource.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
