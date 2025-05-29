@@ -1,1 +1,10 @@
-
+virtual warehouse:
+A virtual warehouse, often referred to simply as a “warehouse”, is a cluster of compute resources in Snowflake.
+A virtual warehouse is available in two types:
+  1. Standard
+  2. Snowpark-optimized
+-----------------------------------------------------------------------------------------------------------------------------
+A warehouse provides:
+  1. resources, such as CPU
+  2. memory,
+  3.and temporary storage, to perform the following operations
