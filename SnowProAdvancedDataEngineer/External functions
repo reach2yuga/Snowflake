@@ -15,3 +15,13 @@ The size of each user’s query.
 The amount of compute resources in the virtual warehouse (i.e. the warehouse size).
 The number of warehouses.
 -------------------------------------------------------------------------------------------------------------------------------
+
+2. Mark all the correct recommendations to improve latency of External functions?
+A) Place the API Gateway in a different cloud platform and region compared to the one
+having your Snowflake instance
+B) If you wrote the remote service (rather than using an existing service), deploy that
+remote service in the same cloud platform and region as it is called from.
+C) Filter data using Snowflake SQL and then send only filtered records to reduce latency
+of response
+Answers : B, C
+Explanation : https://docs.snowflake.com/en/sql-reference/external-functions-best-practices
