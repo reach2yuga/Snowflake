@@ -77,5 +77,36 @@ Less than 60 seconds → Minimum 60 seconds charge applies again
   3.  Avoid mixing light and heavy queries on the same compute resource.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Auto Scale :=>
 
+What it does:
+Auto Scale automatically adjusts the number of warehouse clusters based on query load.
 
+How it works:
+You set a minimum and maximum number of clusters (e.g., Min: 1, Max: 5).
+When workload increases (e.g., many concurrent queries), additional clusters are spun up automatically.
+When load decreases, unused clusters shut down after a short idle period (usually 5 minutes).
+
+Benefits:
+Handles spikes in query volume without slowing down performance.
+Reduces cost by only using extra compute when needed.
+
+Use Case:
+Ideal for variable workloads or when many users/query jobs run at the same time.
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Maximized Mode
+What it does:
+Maximized mode always keeps the maximum number of clusters running, regardless of the current load.
+
+How it works:
+If you configure Max Clusters = 3, all 3 clusters are always active.
+Snowflake does not auto-scale down even if workload is light.
+
+Benefits:
+Guarantees maximum performance and concurrency.
+Useful for mission-critical or high-volume workloads with constant demand.
+
+Use Case:
+Best for consistent, heavy workloads where predictable high throughput is required.
+----------------------------------------------------------------------------------------------------------------------------------------
