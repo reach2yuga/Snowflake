@@ -1,0 +1,17 @@
+1. With respect to external functions, what are all the factors that contribute to affecting
+the number of concurrent calls from Snowflake to a remote OR proxy service ? Choose
+any two.
+A) The size of the database.
+B) The size of the external stage.
+C) The size of each user’s query.
+D) The number of warehouses.
+E) The instance of Snowflake.
+Answers : C, D
+Explanation :
+https://docs.snowflake.com/en/sql-reference/external-functions-implementation
+
+The number of concurrent users who are running queries with external functions.
+The size of each user’s query.
+The amount of compute resources in the virtual warehouse (i.e. the warehouse size).
+The number of warehouses.
+-------------------------------------------------------------------------------------------------------------------------------
