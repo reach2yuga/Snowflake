@@ -80,4 +80,16 @@ Answers : A, E, F
 
 ----------------------------------------------------------------------------------
 
+A team of analysts needs the ability to create their own tables but should not have permission
+to grant access to those tables to other roles.
+How should a Data Engineer handle this?
+1. Create a new schema and grant CREATE TABLE in the schema to the analyst role.
+2. Grant the analyst role the CREATE SCHEMA privilege, have the analyst role create the
+schema, and then remove manage grants from the new schema.
+3. Create a new schema with MANAGED ACCESS and grant CREATE TABLE in the schema
+to the analyst role.
+4. Create a new schema with MANAGED ACCESS and grant OWNERSHIP of the schema to
+the analyst role.
+Answer : 3
 
+------------------------------------------------------------------------------------------------------------------------------------------
