@@ -132,4 +132,21 @@ Caching helps run queries faster by reusing data.
 But if you suspend the warehouse to save costs, the cache is lost—so choose based on what's more important: cost efficiency or performance speed.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
+🏗️ Creating a Warehouse – Key Considerations
+📏 Warehouse Size
+      Affects cost and performance.
+      Choose based on workload (data load, testing, production).
 
+⚙️ Manual vs Auto Management
+      Decide if you want manual or automatic suspend/resume.
+
+🔁 Number of Clusters (for Enterprise Edition)
+      Multi-cluster warehouses improve concurrency.
+      Choose between Auto-scale and Maximized mode.
+
+📦 Selecting Initial Warehouse Size
+    Data Loading ➜ Match size to number and size of files.
+    Testing ➜ Use X-Small, Small, or Medium.
+    Production ➜ Use Large, X-Large, or 2X-Large.
+
+Tip: Try running the same queries across different warehouse sizes to find the most efficient one.
