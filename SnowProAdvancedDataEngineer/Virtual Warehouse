@@ -110,3 +110,26 @@ Useful for mission-critical or high-volume workloads with constant demand.
 Use Case:
 Best for consistent, heavy workloads where predictable high throughput is required.
 ----------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 How Warehouse Caching Impacts Queries
+⚡ Faster Queries with Caching
+      Warehouses cache table data while processing queries.
+      If the same data is needed again, the cache speeds up those future queries.
+
+📦 Bigger Warehouse = Bigger Cache
+      Larger warehouses have more compute power, which means more memory for caching.
+
+🛑 Cache Clears When Suspended
+      Suspending a warehouse wipes the cache.
+      When resumed, performance may be slower at first as the cache rebuilds.
+
+⚖️ Cost vs Performance Trade-off
+      Suspending saves credits 💰, but loses the cache.
+      Keeping it running maintains the cache, offering faster performance, but at a cost.
+
+📝 Summary:
+Caching helps run queries faster by reusing data.
+But if you suspend the warehouse to save costs, the cache is lost—so choose based on what's more important: cost efficiency or performance speed.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
