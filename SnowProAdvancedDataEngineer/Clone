@@ -56,3 +56,18 @@ DATA_RETENTION_TIME_IN DAYS = 0
 Answer : C
 Explanation : Option C will work because the requirement is to disable fail safe.
 Transient tables have fail safe disabled by default
+
+------------------------------------------------------------------------------
+A Data Engineer is cloning a database for a new development
+environment.
+What should the Engineer take into consideration when performing
+the cloning process?[1] (Select TWO).
+1. Pipes that reference an external stage will not be cloned.
+2. Tasks will be suspended by default when created.
+3. Database tables will be locked during the cloning process.
+4. Unconsumed records in the streams will be inaccessible.
+5. The cloned database will retain any granted privileges from
+the source database.
+ Answer : 2,4
+------------------------------------------------------------------------------------------------------------------------------
+
