@@ -1,0 +1,22 @@
+A development environment is configured with the below settings:
+1. DATA_ENGINEER role does not have privileges to delete rows from the
+sys_logs table
+2. OPS role has privileges to delete rows from the sys_logs table
+3. OPS role creates an owner's rights to the stored procedures that deletes rows
+from the sys_logs table
+4. OPS role grants appropriate privileges on the stored procedure to the
+DATA_ENGINEER role
+If a user with the role DATA_ENGINEER calls the stored procedure, what will occur?
+1. The procedure will run with the privileges of DATA_ENGINEER and not the
+privileges of OPS
+2. The procedure will run with the privileges of OPS and not
+the privileges of DATA_ENGINEER
+3. The procedure will error when deleting rows from the
+sys_logs table
+4. The procedure will inherit the current virtual warehouse of
+the OPS role.
+
+Answer : 2
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
