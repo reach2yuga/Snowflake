@@ -69,3 +69,4 @@ Less than 60 seconds → Minimum 60 seconds charge applies again
   5. Consistency Helps Optimization
       Run similar types of queries (in terms of complexity and data sets) on the same warehouse.
       Mixing simple and complex queries in one warehouse can make performance tuning harder.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
