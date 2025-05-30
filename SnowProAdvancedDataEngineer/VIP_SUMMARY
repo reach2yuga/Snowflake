@@ -21,7 +21,7 @@ Spilling
 Bytes spilled to local storage: 37.59 GB =>Indicates memory pressure; the data couldn't be processed in-memory, likely causing slowdowns.
 
 Answer:  Increase the size of the virtual warehouse.
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 Question 2:
 How can the following relational data be transformed into semi-structured data using the
 LEAST amount of operational overhead?
@@ -34,7 +34,7 @@ LEAST amount of operational overhead?
 Answer:  Use the OBJECT_CONSTRUCT function to return a Snowflake object.
 SELECT OBJECT_CONSTRUCT('province', province, 'created_date', created_date) FROM provinces; // { "province": "Alberta", "created_date": "2020-01-19" }
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 A Data Engineer executes a complex query and wants to make use of Snowflake’s
 query results caching capabilities to reuse the results.
@@ -48,7 +48,7 @@ F. The micro-partitions cannot have changed due to changes to other data in the
 table.
 Answer D, E, F
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Question : 4
 A Data Engineer needs to load JSON output from some software into Snowflake using
@@ -65,7 +65,7 @@ F. Create data files that are less than 100 MB and stage them in cloud storage a
 a sequence greater than once each minute.
 Answer : B, D , E
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Qusetion 5
 Given the table SALES which has a clustering key of column CLOSED_DATE, which
@@ -79,7 +79,7 @@ D. select system$clustering_information('Sales', 'sales_representative') wherere
 
 Answer : B
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Qustion 6:
 A large table with 200 columns contains two years of historical data. When queried, the
@@ -93,7 +93,7 @@ C. Implement the search optimization service on the table.
 D. Add a date column as a cluster key on the table.
 Answer : D
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 Question 7:
 A Data Engineer is working on a Snowflake deployment in AWS eu-west-1 (Ireland).
 The Engineer is planning to load data from staged files into target tables using the
@@ -107,7 +107,7 @@ E. External stage in an Amazon S3 bucket on AWS eu-central-1 (Frankfurt)
 F. SSD attached to an Amazon EC2 instance on AWS eu-west-1 (Ireland)
 Answer : C, D , E
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Question 8:
 A Data Engineer wants to create a new development database (DEV) as a clone of the
@@ -125,4 +125,54 @@ D. CREATE DATABASE DEV -
 CLONE PROD -
 DATA_RETENTION_TIME_IN DAYS = 0;
 Answer : C
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Question 10:
+Which methods can be used to create a DataFrame object in Snowpark? (Choose
+three.)
+A. session.jdbc_connection()
+B. session.read.json()
+C. session.table()
+D. DataFrame.write()
+E. session.builder()
+F. session.sql()
+Answer : B , C , F
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Question : 11
+A new CUSTOMER table is created by a data pipeline in a Snowflake schema where
+MANAGED ACCESS is enabled.
+Which roles can grant access to the CUSTOMER table? (Choose three.)
+A. The role that owns the schema
+B. The role that owns the database
+C. The role that owns the CUSTOMER table
+D. The SYSADMIN role
+E. The SECURITYADMIN role
+F. The USERADMIN role with the MANAGE GRANTS privilege
+Answer : A, E , F
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Question : 12
+What is the purpose of the BUILD_STAGE_FILE_URL function in Snowflake?
+A. It generates an encrypted URL for accessing a file in a stage.
+B. It generates a staged URL for accessing a file in a stage.
+C. It generates a permanent URL for accessing files in a stage.
+D. It generates a temporary URL for accessing a file in a stage.
+Answer : C
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Question : 14
+A company has an extensive script in Scala that transforms data by leveraging
+DataFrames. A Data Engineer needs to move these transformations to Snowpark.
+What characteristics of data transformations in Snowpark should be considered to meet
+this requirement? (Choose two.)
+A. It is possible to join multiple tables using DataFrames.
+B. Snowpark operations are executed lazily on the server.
+C. User-Defined Functions (UDFs) are not pushed down to Snowflake.
+D. Snowpark requires a separate cluster outside of Snowflake for computations.
+E. Columns in different DataFrames with the same name should be referred to
+with squared brackets.
+Ans: A,B
