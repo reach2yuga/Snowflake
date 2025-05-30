@@ -94,3 +94,35 @@ D. Add a date column as a cluster key on the table.
 Answer : D
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Question 7:
+A Data Engineer is working on a Snowflake deployment in AWS eu-west-1 (Ireland).
+The Engineer is planning to load data from staged files into target tables using the
+COPY INTO command.
+Which sources are valid? (Choose three.)
+A. Internal stage on GCP us-central1 (Iowa)
+B. Internal stage on AWS eu-central-1 (Frankfurt)
+C. External stage on GCP us-central1 (Iowa)
+D. External stage in an Amazon S3 bucket on AWS eu-west-1 (Ireland)
+E. External stage in an Amazon S3 bucket on AWS eu-central-1 (Frankfurt)
+F. SSD attached to an Amazon EC2 instance on AWS eu-west-1 (Ireland)
+Answer : C, D , E
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Question 8:
+A Data Engineer wants to create a new development database (DEV) as a clone of the
+permanent production database (PROD). There is a requirement to disable Fail-safe for
+all tables.
+Which command will meet these requirements?
+A. CREATE DATABASE DEV -
+CLONE PROD -
+FAIL_SAFE = FALSE;
+B. CREATE DATABASE DEV -
+CLONE PROD;
+C. CREATE TRANSIENT DATABASE DEV -
+CLONE PROD;
+D. CREATE DATABASE DEV -
+CLONE PROD -
+DATA_RETENTION_TIME_IN DAYS = 0;
+Answer : C
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
