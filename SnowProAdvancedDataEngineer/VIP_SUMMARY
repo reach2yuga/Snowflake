@@ -66,3 +66,31 @@ a sequence greater than once each minute.
 Answer : B, D , E
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Qusetion 5
+Given the table SALES which has a clustering key of column CLOSED_DATE, which
+table function will return the average clustering depth for the
+SALES_REPRESENTATIVE column for the North American region?
+
+A. select system$clustering_information('Sales', 'sales_representative', 'region =''North America''');
+B. select system$clustering_depth('Sales', 'sales_representative', 'region =''North America''');
+C. select system$clustering_depth('Sales', 'sales_representative') where region ='North America';
+D. select system$clustering_information('Sales', 'sales_representative') whereregion = 'North America’;
+
+Answer : B
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Qustion 6:
+A large table with 200 columns contains two years of historical data. When queried, the
+table is filtered on a single day. Below is the Query Profile:
+
+Using a size 2XL virtual warehouse, this query took over an hour to complete.
+What will improve the query performance the MOST?
+A. Increase the size of the virtual warehouse.
+B. Increase the number of clusters in the virtual warehouse.
+C. Implement the search optimization service on the table.
+D. Add a date column as a cluster key on the table.
+Answer : D
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
