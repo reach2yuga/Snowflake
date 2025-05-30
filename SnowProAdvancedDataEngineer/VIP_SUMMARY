@@ -1,1 +1,68 @@
+Question : 1
+Execution Time (8m 20.81s) => Total time: 8 minutes 20.81 seconds — quite long for most queries.
+Processing: 77% => 77% of the time is spent on processing, indicating computational bottlenecks.
+Local Disk IO: 2%
+Synchronization: 21%
+Initialization: 1%
+(100%)
 
+Statistics
+
+Scan progress: 100.00%
+Bytes scanned: 5.61 GB
+Percentage scanned from cache: 100.00% =>100% scanned from cache — good, but doesn’t help if query logic is inefficient.
+Bytes written: 0.81 MB
+
+Pruning
+Partitions scanned: 1,328 => No pruning occurred, which is a red flag. This means every partition was scanned, increasing the workload.
+Partitions total: 1,328
+
+Spilling
+Bytes spilled to local storage: 37.59 GB =>Indicates memory pressure; the data couldn't be processed in-memory, likely causing slowdowns.
+
+Answer:  Increase the size of the virtual warehouse.
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Question 2:
+How can the following relational data be transformed into semi-structured data using the
+LEAST amount of operational overhead?
+
+| Row | PROVINCE | CREATED\_DATE |
+| --- | -------- | ------------- |
+| 2   | Alberta  | 2020-01-19    |
+| 1   | Manitoba | 2020-01-18    |
+
+Answer:  Use the OBJECT_CONSTRUCT function to return a Snowflake object.
+SELECT OBJECT_CONSTRUCT('province', province, 'created_date', created_date) FROM provinces; // { "province": "Alberta", "created_date": "2020-01-19" }
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+A Data Engineer executes a complex query and wants to make use of Snowflake’s
+query results caching capabilities to reuse the results.
+Which conditions must be met? (Choose three.)
+A. The results must be reused within 72 hours.
+B. The query must be executed using the same virtual warehouse.
+C. The USED_CACHED_RESULT parameter must be included in the query.
+D. The table structure contributing to the query result cannot have changed.
+E. The new query must have the same syntax as the previously executed query.
+F. The micro-partitions cannot have changed due to changes to other data in the
+table.
+Answer D, E, F
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Question : 4
+A Data Engineer needs to load JSON output from some software into Snowflake using
+Snowpipe.
+Which recommendations apply to this scenario? (Choose three.)
+A. Load large files (1 GB or larger).
+B. Ensure that data files are 100-250 MB (or larger) in size, compressed.
+C. Load a single huge array containing multiple records into a single table row.
+D. Verify each value of each unique element stores a single native data type
+(string or number).
+E. Extract semi-structured data elements containing null values into relational
+columns before loading.
+F. Create data files that are less than 100 MB and stage them in cloud storage at
+a sequence greater than once each minute.
+Answer : B, D , E
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
