@@ -1,0 +1,41 @@
+
+-- What happen if you we recreate existing table with create or replace command what 
+-- 1. happen with existing data?
+-- 2. How to recover existing data?
+
+create database Demo;
+create schema Practice;
+
+
+-- Step 1: Create the table
+CREATE OR REPLACE TABLE Employee_T (
+    ID NUMBER,
+    NAME STRING,
+    CITY STRING
+);
+
+-- Step 2: Insert data
+INSERT INTO Employee_T (ID, NAME, CITY) VALUES 
+(1, 'PRAVEEN', 'HYD'),
+(2, 'KUMAR', 'BNG'),
+(3, 'RAM', 'PUN');
+
+-- Step 3: select data
+select * from Employee_T; // 3 records are there
+
+
+-- Step 4: recreate table
+CREATE OR REPLACE TABLE Employee_T (
+    ID NUMBER,
+    NAME STRING,
+    CITY STRING
+);
+
+-- Step 5: select data
+select * from Employee_T; // No records
+
+---------------------------------------
+
+SELECT * 
+FROM Employee_T AT (OFFSET => -60*500);  -- 5 minutes ago
+
