@@ -1,1 +1,11 @@
-
+1. Snowflake warehouse optimization techniques to improve performance, reduce costs, and ensure efficient query execution?
+🔹 1. Right-size the Warehouse
+         => Start Small: Begin with the smallest size (X-Small) and monitor performance.
+         => Scale Up/Out as Needed:
+         => Scale Up (to Small, Medium, etc.) when single-query performance is slow.
+         => Scale Out (multi-cluster warehouse) when you see query queuing due to concurrency.
+🔹 2. Auto-Suspend and Auto-Resume
+        => Auto-Suspend to minimize cost when the warehouse is idle.
+        =>vAuto-Resume ensures it starts automatically when needed.
+        => Best Practice:
+        => Set AUTO_SUSPEND = 60 (suspend after 60 seconds of inactivity).
