@@ -1,40 +1,111 @@
-Snowflake Dynamic Tables – Quick Notes
-- Dynamic tables are a new feature in Snowflake that allow you to create tables that automatically
- update based on a defined query.
-- They are useful for scenarios where you want to maintain a table that reflects 
-the latest data without
-    having to manually refresh it.
-- Dynamic tables are created using the `CREATE DYNAMIC TABLE` statement, and they require a
-    query that defines how the data should be populated.
-- The query can reference other tables, views, or even other dynamic tables.
-- Dynamic tables are automatically refreshed based on the defined query, and they can be
-    scheduled to refresh at specific intervals.
-- They can also be set to refresh on demand, allowing you to control when the data is updated.
-- Dynamic tables can be used in various scenarios, such as maintaining a summary table,
-    creating a materialized view, or keeping a table in sync with an external data source.
-- They provide a powerful way to manage and maintain data in Snowflake, reducing the need for
-    manual intervention and ensuring that your data is always up to date.   
-- Dynamic tables are a great addition to Snowflake's capabilities, and they can help you
-    streamline your data management processes and improve the efficiency of your data workflows.
-- To create a dynamic table, you can use the following syntax:
-```sqlCREATE DYNAMIC TABLE <table_name> AS
-SELECT <columns>    
-FROM <source_table>
-WHERE <conditions>;
-```
+Scenario: E-Commerce Sales Dashboard
+Objective
 
-- Once the dynamic table is created, it will automatically refresh based on the defined query, and you can use it just like any other table in Snowflake.
-- You can also schedule the refresh of the dynamic table using the `ALTER DYNAMIC TABLE` statement, like this:
-```sqlALTER DYNAMIC TABLE <table_name>
+Keep a table of daily sales metrics updated automatically, including:
 
-SET REFRESH SCHEDULE = 'CRON <cron_expression>';
-```
-- This allows you to specify a cron expression to define when the dynamic table should be refreshed, ensuring that your data is always up to date without manual intervention.
-- Additionally, you can refresh the dynamic table on demand using the `REFRESH DYNAMIC TABLE` statement:
-```sqlREFRESH DYNAMIC TABLE <table_name>;
-```
-- This command will trigger an immediate refresh of the dynamic table, allowing you to update the data
-whenever needed.
-- Dynamic tables are a powerful tool for managing data in Snowflake, and they can help you automate
-    data updates and ensure that your data is always current without the need for manual refreshes.
-- Overall, dynamic tables are a valuable addition to Snowflake's features, providing a convenient way to maintain up-to-date data and streamline your data management processes.
+Total sales per product
+
+Total sales per category
+
+Revenue trends per day
+
+The data comes from raw transactional tables (orders, order_items, products) in Snowflake. You want incremental updates without running full batch jobs manually.
+
+Pipeline Design
+Step 1: Raw Tables
+
+orders(order_id, order_date, customer_id, status)
+
+order_items(order_item_id, order_id, product_id, quantity, price)
+
+products(product_id, product_name, category)
+
+These are source tables that receive continuous updates.
+
+Step 2: Create a Dynamic Table for Order Aggregates
+CREATE OR REPLACE DYNAMIC TABLE daily_product_sales
+TARGET_LAG = '10 minutes'
+WAREHOUSE = analytics_wh
+REFRESH_MODE = AUTO
+AS
+SELECT 
+    o.order_date,
+    p.product_id,
+    p.category,
+    SUM(oi.quantity) AS total_quantity,
+    SUM(oi.quantity * oi.price) AS total_revenue
+FROM orders o
+JOIN order_items oi ON o.order_id = oi.order_id
+JOIN products p ON oi.product_id = p.product_id
+WHERE o.status = 'COMPLETED'
+GROUP BY o.order_date, p.product_id, p.category;
+
+Explanation:
+
+Automatically refreshes every 10 minutes (TARGET_LAG).
+
+Only incremental changes are processed (new orders are added, cancelled orders are removed).
+
+No manual ETL job needed.
+
+Step 3: Build Another Dynamic Table for Category-Level Metrics
+CREATE OR REPLACE DYNAMIC TABLE daily_category_sales
+TARGET_LAG = '15 minutes'
+WAREHOUSE = analytics_wh
+REFRESH_MODE = AUTO
+AS
+SELECT 
+    order_date,
+    category,
+    SUM(total_quantity) AS category_quantity,
+    SUM(total_revenue) AS category_revenue
+FROM daily_product_sales
+GROUP BY order_date, category;
+
+Explanation:
+
+Depends on the first dynamic table (daily_product_sales).
+
+Aggregates data at the category level.
+
+Automatically updates whenever daily_product_sales updates.
+
+Step 4: Optional Dashboard Table
+CREATE OR REPLACE DYNAMIC TABLE sales_dashboard
+TARGET_LAG = '20 minutes'
+WAREHOUSE = analytics_wh
+REFRESH_MODE = AUTO
+AS
+SELECT 
+    order_date,
+    category,
+    category_quantity,
+    category_revenue,
+    ROUND(category_revenue / category_quantity, 2) AS avg_price
+FROM daily_category_sales;
+
+Explanation:
+
+Combines metrics into a ready-to-query table for dashboards.
+
+Supports BI tools like Tableau, Looker, or Power BI directly.
+
+Fully automated with target freshness control.
+
+Step 5: Optional Optimizations
+
+Add immutability constraints if you want to freeze historical dates.
+
+Monitor refresh performance in the Snowflake UI.
+
+Break complex logic into multiple dynamic tables for incremental refresh efficiency.
+
+✅ Benefits of this pipeline
+
+Fully automated, declarative refresh.
+
+No custom scheduling needed.
+
+Incremental updates reduce compute cost.
+
+Easy to extend with more derived tables (e.g., weekly or monthly metrics).
